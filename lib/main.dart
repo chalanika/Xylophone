@@ -11,6 +11,16 @@ class XylophoneApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
+  Expanded buildKey({Color color,int soundNumber}){
+    return Expanded(
+      child:FlatButton(
+        color:color,
+        onPressed: (){
+          playSound(soundNumber);
+        },
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,68 +29,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children:<Widget>[
-              Expanded(
-                child:FlatButton(
-                  color:Colors.red,
-                  onPressed: (){
-                    playSound(3);
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.orange,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.yellow,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.green,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.teal,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.purple,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
-               Expanded(
-                child:FlatButton(
-                  color:Colors.blue,
-                  onPressed: (){
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                ),
-              ),
+              buildKey(color:Colors.red,soundNumber:1),
+              buildKey(color:Colors.orange,soundNumber:2),
+              buildKey(color:Colors.yellow,soundNumber:3),
+              buildKey(color:Colors.green,soundNumber:4),
+              buildKey(color:Colors.teal,soundNumber:5),
+              buildKey(color:Colors.purple,soundNumber:6),
+              buildKey(color:Colors.blue,soundNumber:7),
             ]
             
           ),
